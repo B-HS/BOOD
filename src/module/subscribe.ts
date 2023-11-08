@@ -4,12 +4,7 @@ const subscribe = () => {
         return
     }
 
-    if (Notification.permission === 'granted') {
-        new Notification('안녕하세요!')
-        return
-    }
-
-    if (Notification.permission !== 'denied') {
+    if (Notification.permission !== 'denied' && Notification.permission !== 'granted') {
         Notification.requestPermission().then((permission) => {
             if (permission === 'granted') {
                 new Notification('알림이 구독되었습니다')
