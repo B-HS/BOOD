@@ -1,0 +1,16 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./food.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Food {
+  fid       Int      @id @default(autoincrement())
+  am        String
+  pm        String
+  date      DateTime
+  insertdate DateTime @default(now()) // Automatically inserted when a record is created
+}
