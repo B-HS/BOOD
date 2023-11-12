@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const SubmitFood = () => {
+const Home = () => {
     const authContext = useContext(AuthContext)
     const isAuthed = authContext.isAuthed
     const [date, setDate] = useState<Date>()
@@ -106,4 +106,4 @@ const SubmitFood = () => {
     )
 }
 
-export default SubmitFood
+export default Home

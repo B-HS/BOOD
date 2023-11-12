@@ -55,10 +55,10 @@ const AuthModal = ({ children }: { children: React.ReactNode }) => {
 
                     <ModalFooter>
                         <Button variant={'outline'} mr={3} onClick={onClose}>
-                            Close
+                            Cancel
                         </Button>
                         <Button variant={'outline'} onClick={authCheck}>
-                            Secondary Action
+                            Save
                         </Button>
                     </ModalFooter>
                 </ModalContent>
