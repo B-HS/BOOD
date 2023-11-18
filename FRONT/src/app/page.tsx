@@ -25,16 +25,6 @@ const Home = () => {
         setFormData(obj)
     }
 
-    const loadFoodList = () => {
-        foodlist().then((res) => {
-            const result = res.map((ele: { am: string; pm: string; date: string }) => {
-                const targetIdx = (dayjs(ele.date).format('d') as unknown as number) - 1
-                return { ...days[targetIdx], ...ele, date: dayjs(ele.date).format('YYYY-MM-DD') }
-            })
-            setDay(result)
-        })
-    }
-
     const createFoodList = () => {
         const foods = days.map((day) => ({
             am: day.am,
@@ -66,8 +56,15 @@ const Home = () => {
     }
 
     useEffect(() => {
-        loadFoodList()
-    })
+        !days[0].date &&
+            foodlist().then((res) => {
+                const result = res.map((ele: { am: string; pm: string; date: string }) => {
+                    const targetIdx = (dayjs(ele.date).format('d') as unknown as number) - 1
+                    return { ...days[targetIdx], ...ele, date: dayjs(ele.date).format('YYYY-MM-DD') }
+                })
+                setDay(result.length > 4 ? result : ['월', '화', '수', '목', '금'].map((val) => ({ name: val, am: '', pm: '', date: '' })))
+            })
+    }, [days])
 
     return (
         <Stack divider={<StackDivider />} gap={3}>
