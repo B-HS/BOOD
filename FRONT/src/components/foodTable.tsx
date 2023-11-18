@@ -14,12 +14,16 @@ const FoodTable = ({ days, fn }: { days: { name: string; am: string; pm: string;
                         </CardHeader>
                         <Stack divider={<StackDivider />} minH={'15vh'}>
                             <CardBody display={'flex'} flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
-                                <Text>{day.am}</Text>
+                                {day.am.split(',').map((val, idx) => (
+                                    <Text key={idx}>{val}</Text>
+                                ))}
                             </CardBody>
                         </Stack>
                         <Stack divider={<StackDivider />} minH={'15vh'}>
                             <CardBody display={'flex'} flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
-                                <Text>{day.pm}</Text>
+                                {day.pm.split(',').map((val, idx) => (
+                                    <Text key={idx}>{val}</Text>
+                                ))}
                             </CardBody>
                         </Stack>
                     </Stack>
