@@ -12,5 +12,13 @@ model Food {
   am        String
   pm        String
   date      DateTime
-  insertdate DateTime @default(now()) // Automatically inserted when a record is created
+  insertdate DateTime @default(now())
+}
+
+model Tokens {
+  tid        Int      @id @default(autoincrement())
+  token      String
+  isAm       Boolean
+  isPm       Boolean
+  insertdate DateTime @default(now())
 }
