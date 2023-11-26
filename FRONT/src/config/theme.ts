@@ -1,5 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
-import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+// import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 
 const hoverStyle = {
     _hover: {
@@ -22,14 +22,14 @@ const components = {
         baseStyle: () => hoverStyle,
     },
     Button: {
-        baseStyle: (props: StyleFunctionProps) => ({
+        baseStyle: (props: any) => ({
             color: props.colorMode === 'dark' ? 'black' : 'white',
             ...hoverStyle,
         }),
     },
 }
 const styles = {
-    global: (props: StyleFunctionProps) => ({
+    global: (props: any) => ({
         body: {
             bg: props.colorMode === 'dark' ? 'black' : 'white',
         },
