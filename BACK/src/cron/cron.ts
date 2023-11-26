@@ -29,7 +29,7 @@ const initCronJob = (prisma: PrismaClient, admin: typeof AdminSDK) => {
     }
 
     const checkingTodayFood = async () => {
-        const today = new Date('2023-11-20')
+        const today = new Date()
         today.setHours(0, 0, 0, 0)
         const start = new Date(today)
         today.setHours(23, 59, 59, 999)
