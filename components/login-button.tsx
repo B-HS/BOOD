@@ -1,13 +1,13 @@
 import { createClient } from '@/utils/supabase/server'
+import { LogInIcon, LogOutIcon } from 'lucide-react'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
-import { RedirectType, redirect } from 'next/navigation'
 import { Button } from './ui/button'
+import UserToast from './user-toast'
 
-const AuthButton = async () => {
+const LoginButton = async () => {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-
     const {
         data: { user },
     } = await supabase.auth.getUser()
@@ -17,18 +17,26 @@ const AuthButton = async () => {
         const cookieStore = cookies()
         const supabase = createClient(cookieStore)
         await supabase.auth.signOut()
-        return redirect('/login')
     }
 
-    return user ? (
-        <form action={signOut}>
-            <Button variant='outline'>Logout</Button>
-        </form>
-    ) : (
-        <Button variant={'default'} asChild>
-            <Link href='/login'>Login</Link>
-        </Button>
+    return (
+        <>
+            <UserToast user={user} />
+            {user ? (
+                <form action={signOut}>
+                    <Button variant='ghost' size={'icon'}>
+                        <LogOutIcon />
+                    </Button>
+                </form>
+            ) : (
+                <Button variant={'ghost'} size={'icon'} asChild>
+                    <Link className='p-0' href={'/login'}>
+                        <LogInIcon className='h-6 w-6' />
+                    </Link>
+                </Button>
+            )}
+        </>
     )
 }
 
-export default AuthButton
+export default LoginButton

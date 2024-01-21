@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/header/header'
+import { Toaster } from '@/components/ui/toaster'
 import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 import './globals.css'
@@ -14,8 +16,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     }
     const isSupabaseConnected = canInitSupabaseClient()
     return (
-        <html lang='ko'>
-            <body>{isSupabaseConnected ? <main>{children}</main> : <section>500 Error</section>}</body>
+        <html lang='ko' suppressHydrationWarning>
+            <body className='max-w-screen max-h-screen h-screen w-screen flex flex-col'>
+                <SiteHeader />
+                <section className='container w-full h-full'>{isSupabaseConnected ? children : <span>500 Error</span>}</section>
+                <Toaster />
+            </body>
         </html>
     )
 }
