@@ -33,7 +33,6 @@ const Page = async () => {
             .order('id')
             .order('date', { ascending: true })
         if (error) {
-            console.error('Error fetching data from Supabase:', error)
             return []
         }
 
