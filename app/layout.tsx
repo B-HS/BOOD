@@ -4,6 +4,7 @@ import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 import './globals.css'
 
+export const runtime = 'edge'
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     const cookieStore = cookies()
     const canInitSupabaseClient = () => {
