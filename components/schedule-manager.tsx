@@ -52,6 +52,8 @@ const ScheduleManager = ({ user }: { user: User }) => {
                 </section>
             </section>
             <section className='w-full flex flex-col gap-3'>
+                <p>{process.env.NEXT_PUBLIC_SUPABASE_URL}</p>
+                <p>{process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}</p>
                 {infos.map((info, idx) => (
                     <div className='flex flex-col w-full items-start gap-2' key={idx}>
                         <Label>{dayjs(info.date).format('MM-DD (ddd)')}</Label>
