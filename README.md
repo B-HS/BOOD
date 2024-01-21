@@ -5,3 +5,6 @@
 1. [Supabase](https://supabase.com/)
 2. [Nextjs](https://nextjs.org/)
 3. [Shadcn](https://ui.shadcn.com/)
+
+## 남은 일
+1. 웹푸시
