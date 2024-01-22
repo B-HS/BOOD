@@ -9,3 +9,4 @@
 
 ## 남은 일
 1. 웹푸시
+2. cloudflare page를 위해 Error: Minified React error #425 등 에러 수정 필요
