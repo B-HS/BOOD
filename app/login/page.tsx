@@ -33,7 +33,7 @@ const Login = ({ searchParams }: { searchParams: { message: string } }) => {
                 </div>
                 <div className='grid w-full items-center gap-1.5'>
                     <Label htmlFor='password'>Password</Label>
-                    <Input name='password' type='password' id='password' placeholder='password' />
+                    <Input name='password' type='password' id='password' placeholder='password' autoComplete='current-password' />
                 </div>
                 <Button variant={'default'}>Sign In</Button>
                 {searchParams?.message && <p className='mt-4 p-4 bg-foreground/10 text-foreground text-center'>{searchParams.message}</p>}

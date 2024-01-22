@@ -25,7 +25,7 @@ export const POST = async () => {
             .order('id')
             .order('date', { ascending: true })
         if (error) {
-            return NextResponse.json([] as ScheduleProps[])
+            return NextResponse.json([{ errorMsg: error }] as any[])
         }
         const uniqueData = Object.values(
             weekData.reduce((prev, next) => {
@@ -38,6 +38,7 @@ export const POST = async () => {
                 return prev
             }, {}),
         )
+
         return NextResponse.json(uniqueData.splice(0, 5) as ScheduleProps[])
     } catch (error) {
         return NextResponse.error()
