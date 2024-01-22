@@ -1,10 +1,8 @@
-import SITE_CONFIG from '@/config/site'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { CookingPotIcon } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import LoginButton from '../login-button'
 import { Button } from '../ui/button'
-import Link from 'next/link'
 
 const SiteHeader = () => {
     return (
@@ -15,7 +13,7 @@ const SiteHeader = () => {
                 </Link>
                 <nav className='flex items-center'>
                     <Button variant={'ghost'} size={'icon'} asChild>
-                        <Link className='p-0' href={SITE_CONFIG.links.github}>
+                        <Link className='p-0' href={'https://github.com/B-HS'}>
                             <GitHubLogoIcon className='h-6 w-6' />
                         </Link>
                     </Button>
