@@ -8,4 +8,4 @@
 3. [Shadcn](https://ui.shadcn.com/)
 
 ## 남은 일
-1. 웹푸시
+1. 웹푸시 >> 3월에 시작
